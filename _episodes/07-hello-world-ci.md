@@ -19,7 +19,7 @@ We've been working on the CMake repository which has a lot of work done, but we 
 
 ~~~
 > cd cmake-repository/
-> touch .gitlab-ci.yml
+> echo "hello world" >> .gitlab-ci.yml
 > git checkout -b feature/add-ci
 > git add .gitlab-ci.yml
 > git commit -m "my first ci/cd"
