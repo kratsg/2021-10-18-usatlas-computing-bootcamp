@@ -89,7 +89,7 @@ As it seems like we have a complete CI/CD that does physics - we should see what
 > >   dependencies:
 > >     - build
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >     - source build/${AnalysisBase_PLATFORM}/setup.sh
 > >     - echo $SERVICE_PASS | kinit $CERN_USER
 > >   script:

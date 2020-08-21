@@ -22,7 +22,7 @@ The GitLab CI configurations are specified using a YAML file called `.gitlab-ci.
 image: atlas/analysisbase:latest
 
 before_script:
-  - source /home/atlas/release_setup.sh
+  - source /release_setup.sh
   - mkdir build
 
 build_analysis:

@@ -105,7 +105,7 @@ Let's go ahead and update our `.gitlab-ci.yml` and fix it.
 > What happened?
 >
 > > ## Answer
-> > It turns out we just forgot to source `/home/atlas/release_setup.sh`.
+> > It turns out we just forgot to source `/release_setup.sh`.
 > {: .solution}
 {: .challenge}
 
@@ -132,7 +132,7 @@ Great, so we finally got it working... CI/CD isn't obviously powerful when you'r
 > > build:
 > >   image: atlas/analysisbase:21.2.85-centos7
 > >   script:
-> >    - source /home/atlas/release_setup.sh
+> >    - source /release_setup.sh
 > >    - mkdir build
 > >    - cd build
 > >    - cmake ../source
@@ -141,7 +141,7 @@ Great, so we finally got it working... CI/CD isn't obviously powerful when you'r
 > > build_latest:
 > >   image: atlas/analysisbase:latest
 > >   script:
-> >    - source /home/atlas/release_setup.sh
+> >    - source /release_setup.sh
 > >    - mkdir build
 > >    - cd build
 > >    - cmake ../source
@@ -161,12 +161,12 @@ build_latest:
 ~~~
 {: .language-yaml}
 
-Finally, we want to clean up the two jobs a little be separating out the `source /home/atlas/release_setup.sh` into a `before_script` parameter since this is actually preparation for setting up our environment -- rather than part of the script we want to test! For example,
+Finally, we want to clean up the two jobs a little be separating out the `source /release_setup.sh` into a `before_script` parameter since this is actually preparation for setting up our environment -- rather than part of the script we want to test! For example,
 
 ~~~
 build_latest:
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
   ...
 ~~~
 {: .language-yaml}

@@ -35,7 +35,7 @@ hello world:
 .build_template:
   stage: build
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
   script:
     - mkdir build
     - cd build
@@ -75,7 +75,7 @@ run_exotics:
   stage: run
   image: atlas/analysisbase:21.2.85-centos7
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
     - source build/${AnalysisBase_PLATFORM}/setup.sh
   script:
     - mkdir run
@@ -145,7 +145,7 @@ Since the build artifacts don't need to exist for more than a day, let's add art
 > > .build_template:
 > >   stage: build
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build
@@ -163,7 +163,7 @@ Since the build artifacts don't need to exist for more than a day, let's add art
 > >   dependencies:
 > >     - build
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >     - source build/${AnalysisBase_PLATFORM}/setup.sh
 > >   script:
 > >     - mkdir run

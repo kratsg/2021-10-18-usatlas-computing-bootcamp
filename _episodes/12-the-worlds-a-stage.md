@@ -27,7 +27,7 @@ hello world:
 
 .build_template:
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
   script:
     - mkdir build
     - cd build
@@ -78,7 +78,7 @@ Stages allow us to categorize jobs by functionality, such as `build`, or `test`,
 > > .build_template:
 > >   stage: build
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build

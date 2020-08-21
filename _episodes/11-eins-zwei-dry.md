@@ -55,7 +55,7 @@ hello world:
 build:
   image: atlas/analysisbase:21.2.85-centos7
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
   script:
     - mkdir build
     - cd build
@@ -65,7 +65,7 @@ build:
 build_latest:
   image: atlas/analysisbase:latest
   before_script:
-    - source /home/atlas/release_setup.sh
+    - source /release_setup.sh
   script:
     - mkdir build
     - cd build
@@ -93,7 +93,7 @@ We've already started to repeat ourselves. How can we combine the two into a sin
 > >
 > > .build_template:
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build
@@ -103,7 +103,7 @@ We've already started to repeat ourselves. How can we combine the two into a sin
 > > build:
 > >   image: atlas/analysisbase:21.2.85-centos7
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build
@@ -113,7 +113,7 @@ We've already started to repeat ourselves. How can we combine the two into a sin
 > > build_latest:
 > >   image: atlas/analysisbase:latest
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build
@@ -182,7 +182,7 @@ Note how `.in-docker` overrides `:rspec:tags` because it's "closest in scope".
 > >
 > > .build_template:
 > >   before_script:
-> >     - source /home/atlas/release_setup.sh
+> >     - source /release_setup.sh
 > >   script:
 > >     - mkdir build
 > >     - cd build
