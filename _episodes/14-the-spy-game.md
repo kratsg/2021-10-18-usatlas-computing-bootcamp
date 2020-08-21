@@ -85,7 +85,7 @@ As it seems like we have a complete CI/CD that does physics - we should see what
 > > ~~~
 > > run_exotics:
 > >   stage: run
-> >   image: atlas/analysisbase:21.2.85-centos7
+> >   image: atlas/analysisbase:21.2.125
 > >   dependencies:
 > >     - build
 > >   before_script:

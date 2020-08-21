@@ -53,7 +53,7 @@ hello world:
     - find . -path ./.git -prune -o -print
 
 build:
-  image: atlas/analysisbase:21.2.85-centos7
+  image: atlas/analysisbase:21.2.125
   before_script:
     - source /release_setup.sh
   script:
@@ -101,7 +101,7 @@ We've already started to repeat ourselves. How can we combine the two into a sin
 > >     - cmake --build .
 > >
 > > build:
-> >   image: atlas/analysisbase:21.2.85-centos7
+> >   image: atlas/analysisbase:21.2.125
 > >   before_script:
 > >     - source /release_setup.sh
 > >   script:
@@ -191,7 +191,7 @@ Note how `.in-docker` overrides `:rspec:tags` because it's "closest in scope".
 > >
 > > build:
 > >   extends: .build_template
-> >   image: atlas/analysisbase:21.2.85-centos7
+> >   image: atlas/analysisbase:21.2.125
 > >
 > > build_latest:
 > >   extends: .build_template

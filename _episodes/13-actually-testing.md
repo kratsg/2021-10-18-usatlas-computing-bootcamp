@@ -44,7 +44,7 @@ hello world:
 
 build:
   extends: .build_template
-  image: atlas/analysisbase:21.2.85-centos7
+  image: atlas/analysisbase:21.2.125
 
 build_latest:
   extends: .build_template
@@ -73,7 +73,7 @@ and we just need to figure out how to define a run job. Since the code is built,
 ~~~
 run_exotics:
   stage: run
-  image: atlas/analysisbase:21.2.85-centos7
+  image: atlas/analysisbase:21.2.125
   before_script:
     - source /release_setup.sh
     - source build/${AnalysisBase_PLATFORM}/setup.sh
@@ -159,7 +159,7 @@ Since the build artifacts don't need to exist for more than a day, let's add art
 > > ...
 > > run_exotics:
 > >   stage: run
-> >   image: atlas/analysisbase:21.2.85-centos7
+> >   image: atlas/analysisbase:21.2.125
 > >   dependencies:
 > >     - build
 > >   before_script:
