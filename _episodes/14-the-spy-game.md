@@ -31,7 +31,21 @@ ERROR: Job failed: exit code 1
 
 # Access Control
 
-So we need to give our CI/CD access to our data. This is actually a good thing. It means CMS can't just grab it! Anyhow, this is done by pretty much done by executing `echo $SERVICE_PASS | kinit $CERN_USER` assuming that we've set the corresponding environment variables.
+So we need to give our CI/CD access to our data. This is actually a good thing. It means CMS can't just grab it! Anyhow, this is done by pretty much done by executing `printf "$SERVICE_PASS" | base64 -d | kinit $CERN_USER` assuming that we've set the corresponding environment variables by safely encoding them (`printf "hunter42" | base64`).
+
+> ## Running examples with variables
+>
+> Sometimes you'll run into a code example here that you might want to run locally but relies on variables you might not have set? Sure, simply do the following
+> ~~~
+> SERVICE_PASS=hunter42 CERN_USER=GoodWill printf "$SERVICE_PASS" | base64 -d | kinit $CERN_USER
+> ~~~
+> {: .language-bash}
+{: .callout}
+
+> ## Base-64 encoding?
+>
+> Sometimes you have a string that contains certain characters that would be interpreted incorreectly by GitLab's CI system. In order to protect against that, you can safely base-64 encode the string, store it, and then decode it as part of the CI job. This is entirely safe and recommended.
+{: .callout}
 
 > ## Service Account or Not?
 >
@@ -39,6 +53,12 @@ So we need to give our CI/CD access to our data. This is actually a good thing. 
 >
 > However, when you're sharing or part of a group, it is much better to use a group's service account or a user's (maybe yours) service account for authentication instead. For today's lesson however, we'll be using your account and show pictures of how to set these environment variables.
 {: .callout}
+
+> ## How to make a service account?
+>
+> Go to [CERN Account Management -> Create New Account](https://account.cern.ch/account/Management/NewAccount.aspx) and click on the `Service` button, then click `Next` and follow the steps.
+{: .callout}
+
 
 ## Variables
 
@@ -66,7 +86,7 @@ Let's go ahead and add some custom variables to fix up our access control.
 
 # Adding `kinit` for access control
 
-Now it's time to update your CI/CD to use the environment variables you defined by adding `echo $SERVICE_PASS | kinit $CERN_USER` as part of the `before_script` to the `run_exotics` job as that's the job that requires access.
+Now it's time to update your CI/CD to use the environment variables you defined by adding `printf "$SERVICE_PASS" | base64 -d | kinit $CERN_USER@CERN.CH` as part of the `before_script` to the `skim_ggH` job as that's the job that requires access.
 
 # Adding Artifacts on Success
 
@@ -86,7 +106,7 @@ As it seems like we have a complete CI/CD that does physics - we should see what
 > >   before_script:
 > >     - source /release_setup.sh
 > >     - source build/${AnalysisBase_PLATFORM}/setup.sh
-> >     - echo $SERVICE_PASS | kinit $CERN_USER
+> >     - printf "$SERVICE_PASS" | base64 -d | kinit $CERN_USER
 > >   script:
 > >     - mkdir run
 > >     - cd run
