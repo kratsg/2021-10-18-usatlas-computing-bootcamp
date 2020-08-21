@@ -64,11 +64,6 @@ Let's go ahead and add some custom variables to fix up our access control.
   ![CI/CD Variables Specified]({{site.baseurl}}/fig/repo-settings-ci-cd-variables-specified.png)
 4. Click to save the variables.
 
-> ## DON'T PEEK
->
-> DON'T PEEK AT YOUR FRIEND'S SCREEN WHILE DOING THIS.
-{: .testimonial}
-
 # Adding `kinit` for access control
 
 Now it's time to update your CI/CD to use the environment variables you defined by adding `echo $SERVICE_PASS | kinit $CERN_USER` as part of the `before_script` to the `run_exotics` job as that's the job that requires access.
