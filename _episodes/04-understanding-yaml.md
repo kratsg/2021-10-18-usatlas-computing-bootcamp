@@ -19,7 +19,7 @@ YAML is Yet Another Markup Language that is usually the modus operandi for CI sy
 > ## Tabs or Spaces?
 >
 > We strongly suggest you use spaces for a YAML document. Indentation is done
-> with one or more spaces, howver **two spaces** is the unofficial standard
+> with one or more spaces, however **two spaces** is the unofficial standard
 > commonly used.
 {: .callout}
 
