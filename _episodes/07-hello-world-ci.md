@@ -57,10 +57,10 @@ We should fix this. If you click through again on the red `x` on the left for th
 
 Lastly, we'll open up a merge request for this branch, since we plan to merge this back into master when we're happy with the first iteration of the CI/CD.
 
-> ## Work In Progress?
+> ## Draft Mode?
 >
-> If you expect to be working on a branch for a bit of time while you have a merge request open, it's good etiquette to mark it as a Work-In-Progress (WIP).
-> ![Work In Progress]({{site.baseurl}}/fig/work-in-progress.png)
+> If you expect to be working on a branch for a bit of time while you have a merge request open, it's good etiquette to mark it as a draft (e.g. Work-In-Progress). This can be done by clicking the little link below the title or adding `draft:` at the beginning of your Merge Request title.
+> ![Draft Merge Request]({{site.baseurl}}/fig/draft.png)
 {: .callout}
 
 # Hello World
