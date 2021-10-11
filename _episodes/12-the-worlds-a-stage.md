@@ -36,7 +36,7 @@ hello world:
 
 build:
   extends: .build_template
-  image: atlas/analysisbase:21.2.125
+  image: atlas/analysisbase:21.2.186
 
 build_latest:
   extends: .build_template
@@ -87,7 +87,7 @@ Stages allow us to categorize jobs by functionality, such as `build`, or `test`,
 > >
 > > build:
 > >   extends: .build_template
-> >   image: atlas/analysisbase:21.2.125
+> >   image: atlas/analysisbase:21.2.186
 > >
 > > build_latest:
 > >   extends: .build_template

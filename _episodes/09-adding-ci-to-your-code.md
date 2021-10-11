@@ -130,7 +130,7 @@ Great, so we finally got it working... CI/CD isn't obviously powerful when you'r
 > >    - find . -path ./.git -prune -o -print
 > >
 > > build:
-> >   image: atlas/analysisbase:21.2.125
+> >   image: atlas/analysisbase:21.2.186
 > >   script:
 > >    - source /release_setup.sh
 > >    - mkdir build
